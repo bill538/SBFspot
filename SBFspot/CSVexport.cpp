@@ -748,6 +748,8 @@ int ExportBatteryDataToCSV(const Config *cfg, InverterData* const inverters[])
                 fputs("\n", csv);
         }
         fclose(csv);
+        if (cfg->flushcsv)
+            fflush(csv);
     }
     return 0;
 }

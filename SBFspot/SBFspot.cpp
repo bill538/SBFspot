@@ -1067,6 +1067,7 @@ int parseCmdline(int argc, char **argv, Config *cfg)
     cfg->userGroup = UG_USER;
     cfg->quiet = false;
     cfg->nocsv = false;
+    cfg->flushcsv = false;
     cfg->nospot = false;
     cfg->nosql = false;
     // 123Solar Web Solar logger support(http://www.123solar.org/)
@@ -1235,6 +1236,10 @@ int parseCmdline(int argc, char **argv, Config *cfg)
         //Set NoCSV flag (Disable CSV export - Overrules Config setting)
         else if (stricmp(argv[i], "-nocsv") == 0)
             cfg->nocsv = true;
+
+        //Set FlushCSV flag (Flush closed file handle to disk on each line print)
+        else if (stricmp(argv[i], "-flushcsv") == 0)
+            cfg->flushcsv = true;
 
         //Set NoSQL flag (Disable SQL export)
         else if (stricmp(argv[i], "-nosql") == 0)
@@ -1415,6 +1420,7 @@ void SayHello(int ShowHelp)
         std::cout << " -finq               Force Inquiry (Inquire inverter also during the night)\n";
         std::cout << " -q                  Quiet (No output)\n";
         std::cout << " -nocsv              Disables CSV export (Overrules CSV_Export in config)\n";
+        std::cout << " -flushcsv           Flush every CSV line to disk on print\n";
         std::cout << " -nosql              Disables SQL export\n";
         std::cout << " -sp0                Disables Spot.csv export\n";
         std::cout << " -installer          Login as installer\n";

@@ -128,6 +128,7 @@ struct Config
     bool    forceInq;               // -finq        Inquire inverter also during the night
     bool    quiet;                  // -q           Silent operation 
     bool    nocsv;                  // -nocsv       Disables CSV export (Overrules CSV_Export in config)
+    bool    flushcsv;               // -flushcsv    Set FlushCSV flag (Flush closed file handle to disk on each line print)
     bool    nospot;                 // -sp0         Disables Spot CSV export
     bool    nosql;                  // -nosql       Disables SQL export
     bool    loadlive;               // -loadlive    Force settings to prepare for live loading to http://pvoutput.org/loadlive.jsp
