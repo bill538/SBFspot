@@ -189,9 +189,14 @@ enum DEVICECLASS
     SolarInverter = 8001,       // DevClss1
     WindTurbineInverter = 8002, // DevClss2
     BatteryInverter = 8007,     // DevClss7
+    ChargingStation = 8008,     // DevClss8
+    HybridInverter = 8009,      // DevClss9
     Consumer = 8033,            // DevClss33
     SensorSystem = 8064,        // DevClss64
     ElectricityMeter = 8065,    // DevClss65
+    GasMeter = 8066,            // DevClss66
+    GenericMeter = 8067,        // DevClss67
+    Tracker = 8096,             // DevClss96
     CommunicationProduct = 8128 // DevClss128
 };
 
@@ -282,7 +287,7 @@ struct InverterData
     int32_t Temperature;                // Inverter Temperature
     int32_t MeteringGridMsTotWOut;      // Power grid feed-in (Out)
     int32_t MeteringGridMsTotWIn;       // Power grid reference (In)
-    bool hasBattery;                    // Smart Energy device
+    bool hasBattery;                    // Battery, Hybrid or Smart Energy device
     int logonStatus;
     uint32_t multigateID;
     E_SBFSPOT status;                   // Result of getInverterData()
